@@ -1,0 +1,12 @@
+FROM node:7.7.2
+
+MAINTAINER Mateusz Probachta <mateusz.probachta@pragmaticcoders.com>
+
+EXPOSE 8545
+
+RUN apt-get update &&\
+    apt-get upgrade -y &&\
+    apt-get install build-essential -y &&\
+    npm install -g ethereumjs-testrpc
+
+CMD testrpc -h 0.0.0.0 -p 8545

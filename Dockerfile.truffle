@@ -1,0 +1,14 @@
+FROM node:7.7.2
+
+MAINTAINER Mateusz Probachta <mateusz.probachta@pragmaticcoders.com>
+
+RUN apt-get -y update &&\
+    apt-get -y upgrade &&\
+    apt-get install build-essential -y &&\
+    npm install -g truffle
+
+RUN mkdir -p /app
+ADD . /app
+WORKDIR /app
+
+CMD truffle compile

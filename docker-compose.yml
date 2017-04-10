@@ -1,0 +1,20 @@
+version: "2"
+services:
+  testrpc:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.testrpc
+    ports:
+      - "8545:8545"
+
+  truffle:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.truffle
+    volumes:
+      - .:/app
+    links:
+      - "testrpc:testrpc"
+    environment:
+      - RPC_HOST=testrpc
+    command: truffle watch
