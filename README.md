@@ -23,4 +23,4 @@ After is up run migrations
 ❯ docker-compose exec truffle truffle migrate --reset
 ```
 
-Happy hacking! <3
+Happy hacking! :heart:
